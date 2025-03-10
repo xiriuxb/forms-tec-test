@@ -1,5 +1,6 @@
 import { CreateFormModel } from "../models/Form";
-import supabaseClient from "./supabase-client";
+import { postField } from "./fields.api";
+import supabaseClient from "./supabase-client.api";
 
 export async function getForms() {
   const { data, error } = await supabaseClient.from("forms").select("*");
@@ -24,13 +25,7 @@ export const saveForm = async (formData:CreateFormModel) => {
       form_id: form.id,
     }));
 
-    const { data: fields, error: fieldsError } = await supabaseClient
-      .from('fields')
-      .insert(fieldsWithFormId);
-
-    if (fieldsError) {
-      throw fieldsError;
-    }
+    const fields = postField(fieldsWithFormId);
 
     console.log('Campos guardados:', fields);
     alert('Formulario y campos guardados correctamente');

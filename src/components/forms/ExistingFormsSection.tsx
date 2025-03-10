@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getForms } from "../../api-client/forms";
+import { getForms } from "../../api-client/forms.api";
 import FormModel from "../../models/Form";
 
 export default function ExistingFormsSection() {

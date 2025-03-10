@@ -3,9 +3,9 @@ import FieldCard from "../components/forms-designer/FieldCard";
 import TitleCard from "../components/forms-designer/TitleCard";
 import { CreateFormModel } from "../models/Form";
 import { useEffect, useRef, useState } from "react";
-import { getFieldTypes } from "../api-client/filed-types";
+import { getFieldTypes } from "../api-client/filed-types.api";
 import { FieldTypes } from "../models/FieldTypes";
-import { saveForm } from "../api-client/forms";
+import { saveForm } from "../api-client/forms.api";
 
 const DEFAULT_TYPE_NAME = "short_text";
 
@@ -50,11 +50,11 @@ export default function FormDesignerPage() {
 
   const onSubmit = async () => {
     console.log(methods.getValues());
-    // try {
-    //   await saveForm(methods.getValues());
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      await saveForm(methods.getValues());
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleAddField = () => {

@@ -16,3 +16,7 @@ export interface CreateFieldModel{
   is_required:boolean;
   options?:(string)[];
 }
+
+export interface CreateFieldModelSup extends CreateFieldModel {
+  form_id:string;
+}
