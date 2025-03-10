@@ -30,5 +30,5 @@ The app uses the following major dependencies:
 
 #### Known Issues
 - There is a bug when tries to delete last field(question) from designer page.
-- There is a graphic bug when add a new question. The new question is rendered with last question description.
 - "Backend" conection errors not handled.
+- **Delete** not working. Supabase auth error. RLS is disabled so idk.
