@@ -34,8 +34,6 @@ export default function FormDesignerPage() {
     handleFieldTypes();
   }, []);
 
-  useEffect(() => {}, [fieldTypes]);
-
   const handleFieldTypes = async () => {
     try {
       const values = await getFieldTypes();
@@ -87,7 +85,7 @@ export default function FormDesignerPage() {
           </button>
           <TitleCard />
           {defaultType.current?.id &&
-            methods.getValues("fields").map((field, index) => {
+            methods.getValues("fields").map((_, index) => {
               return (
                 <FieldCard
                   key={index}
