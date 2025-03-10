@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getForms } from "../../api-client/forms.api";
 import FormModel from "../../models/Form";
+import "./new-form-section.css";
+import { Link } from "react-router";
 
 export default function ExistingFormsSection() {
   const [forms, setForms] = useState<FormModel[]>([]);
@@ -19,12 +21,25 @@ export default function ExistingFormsSection() {
     handleGetForms();
   }, []);
   return (
-    <div>
+    <>
       <h4>Formularios creados</h4>
-      {!pending &&
-        forms.map((form) => {
-          return <p>{form.name}</p>;
-        })}
+      <div className="forms__existing-section">
+        {!pending &&
+          forms.map((form) => {
+            return <ViewFormCard form={form} />;
+          })}
+      </div>
+    </>
+  );
+}
+
+function ViewFormCard({ form }: { form: FormModel }) {
+  return (
+    <div className="forms__existing-section__card">
+      <p>{form.name}</p>
+      <p>{form.description}</p>
+      <Link to={`/forms/u/${form.id}`}>Ver</Link>
+      <button>Editar</button>
     </div>
   );
 }

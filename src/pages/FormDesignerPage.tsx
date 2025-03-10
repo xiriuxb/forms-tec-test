@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import FieldCard from "../components/forms-designer/FieldCard";
 import TitleCard from "../components/forms-designer/TitleCard";
@@ -37,7 +38,7 @@ export default function FormDesignerPage() {
   const handleFieldTypes = async () => {
     try {
       const values = await getFieldTypes();
-      defaultType.current = values.find((o) => o.name == DEFAULT_TYPE_NAME);
+      defaultType.current = values.find((o:{name:string}) => o.name == DEFAULT_TYPE_NAME);
       setFieldTypes(values);
     } catch (error) {
       console.log(error);
@@ -60,6 +61,7 @@ export default function FormDesignerPage() {
       question: `Pregunta sin título ${methods.getValues("fields").length}`,
       is_required: false,
       field_type_id: defaultType.current!.id,
+      description: undefined,
     });
   };
 

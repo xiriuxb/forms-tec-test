@@ -8,3 +8,20 @@
   padding: 0.7rem;
   font-size: medium;
 }
+
+.forms__existing-section{
+  display: inline-flex;
+  gap:0.8rem;
+  padding: 0.8rem;
+}
+
+.forms__existing-section__card{
+  border: 1px solid black;
+  padding: 1rem;
+  flex-wrap: wrap;
+  display: inline-flex;
+}
+
+.forms__existing-section p{
+  margin-block: 0;
+}
