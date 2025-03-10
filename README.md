@@ -1,54 +1,34 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Local instalation
+1. Clone the repo
+`git clone https://github.com/xiriuxb/forms-tec-test.git`
+2. Go to the folder you cloned the repo
+`cd ./forms-tec-test`
+3. Install dependencies
+`npm i`
+4. Create `.env` file based on `.env.example`. You need the supabase **url** and **key**
+5. If you want to execute the supabase migrations need **Supabase CLI**. To install and instructions, please see [This link](https://supabase.com/docs/guides/local-development/cli/getting-started?queryGroups=platform&platform=windows).
+6. Then you just can run `npm run dev` to start local dev.
 
-Currently, two official plugins are available:
+### The App
+According to test document, the app needs to do:
+- [x] Create forms with diferent kinds of questions:
+  - [x] Multiple option
+  - [x] Multiple selection
+  - [x] Short (text) answer
+- [] Edit forms
+- [x] Delete forms
+- [x] Visualize forms
+- [X] Validations at creating form. Only at form name and field name.
+- [X] Vercel deploy. Due to limitations of Vercel free plan the integration is made with *GitHub Actions*.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app uses the following major dependencies:
+- React
+- React router dom
+- React hook form
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+#### Known Issues
+- There is a bug when tries to delete last field(question) from designer page.
+- There is a graphic bug when add a new question. The new question is rendered with last question description.
+- "Backend" conection errors not handled.
