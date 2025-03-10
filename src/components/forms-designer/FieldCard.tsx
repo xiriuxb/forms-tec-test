@@ -62,7 +62,7 @@ export default function FieldCard({
 
         <FieldTypeSelector index={index} options={typeOptions} />
       </div>
-      <input placeholder="Descripción" {...register("description")}></input>
+      <input placeholder="Descripción" {...register(`fields.${index}.description`)}></input>
 
       <MultipleOptionsComponent
         index={index}
