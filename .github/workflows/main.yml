@@ -22,10 +22,7 @@ jobs:
         run: npm install -g vercel
 
       - name: Pull Vercel Environment Variables
-        run: vercel pull ve--yes --token ${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build the project
-        run: vercel build --token ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
         run: vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }}
