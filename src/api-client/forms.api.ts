@@ -70,3 +70,31 @@ export const getFormWithFieldsAndTypes = async (formId: string) => {
 
   return data as FormModelWithRelations;
 };
+
+
+export const deleteFormCascade = async (formId: string) => {
+  try {
+    const { error: deleteFieldsError } = await supabaseClient
+      .from('fields')
+      .delete()
+      .eq('form_id', formId);
+
+    if (deleteFieldsError) {
+      throw deleteFieldsError;
+    }
+
+    const { error: deleteFormError } = await supabaseClient
+      .from('forms')
+      .delete()
+      .eq('id', formId);
+
+    if (deleteFormError) {
+      throw deleteFormError;
+    }
+
+    console.log('Formulario y campos eliminados correctamente');
+  } catch (error) {
+    console.error('Error al eliminar el formulario:', error);
+    alert("error deleting stuff");
+  }
+};

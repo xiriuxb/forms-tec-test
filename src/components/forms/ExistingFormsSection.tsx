@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getForms } from "../../api-client/forms.api";
+import { deleteFormCascade, getForms } from "../../api-client/forms.api";
 import FormModel from "../../models/Form";
 import { Link } from "react-router";
 import "./new-form-section.css";
@@ -34,12 +34,23 @@ export default function ExistingFormsSection() {
 }
 
 function ViewFormCard({ form }: { form: FormModel }) {
+  const [loading, setLoading] = useState(false);
+  const handleDelete = async () =>{
+    try {
+      setLoading(true);
+      await deleteFormCascade(form.id);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="forms__existing-section__card">
+      {loading && <div className="modal">Por favor espere</div>}
       <p>{form.name}</p>
       <p>{form.description}</p>
       <Link className="forms__existing-section__card__btn" to={`/forms/u/${form.id}`}>Ver</Link>
-      <button className="forms__existing-section__card__btn">Editar</button>
+      <button onClick={()=>handleDelete()} className="forms__existing-section__card__btn">Eliminar</button>
     </div>
   );
 }
