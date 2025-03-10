@@ -1,0 +1,18 @@
+.form_view{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  align-items: center;
+}
+
+.form_view__field
+{
+  border: 2px solid black;
+  width: 60%;
+  max-width: 1440px;
+  padding: 1rem;
+}
+
+.form_view__field>input{
+  width: 100%;
+}
