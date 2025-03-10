@@ -17,13 +17,12 @@ export default function FieldCard({
   typeOptions,
   defaultOption,
 }: FieldCardProps) {
-  const { register, watch, control } =
+  const { register, watch, control, formState } =
     useFormContext<CreateFormModel>();
   const { remove } = useFieldArray<CreateFormModel>({
     name: "fields",
     control: control,
     rules: { minLength: 1 },
-
   });
 
   const handleRemoveField = (index: number) => {
@@ -43,11 +42,24 @@ export default function FieldCard({
         </button>
       )}
       <div className="form_designer__card__title">
-        <input
-          placeholder="Pregunta"
-          type="text"
-          {...register(`fields.${index}.question`)}
-        />
+        <label>
+          <input
+            placeholder="Pregunta"
+            type="text"
+            {...register(`fields.${index}.question`, {
+              required: {value: true, message:"Requerido"},
+              maxLength: {value: 128, message: "Too long (128)"},
+              minLength: {value: 2, message: "Too short (2)"},
+            })}
+          />
+          {formState.errors.fields &&
+            formState.errors.fields[index]?.question && (
+              <span className="error_span">
+                {formState.errors.fields[index]?.question.message}
+              </span>
+            )}
+        </label>
+
         <FieldTypeSelector index={index} options={typeOptions} />
       </div>
       <input placeholder="Descripción" {...register("description")}></input>
