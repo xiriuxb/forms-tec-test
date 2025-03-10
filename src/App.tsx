@@ -1,5 +1,8 @@
+import { RouterProvider } from "react-router";
+import AppRouter from "./routes/AppRouter";
+
 function App() {
-  return <><h1>Forms App</h1></>;
+  return <RouterProvider router={AppRouter}/>
 }
 
 export default App;

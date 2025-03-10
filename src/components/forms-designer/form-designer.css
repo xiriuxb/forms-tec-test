@@ -1,0 +1,31 @@
+.form_designer__card,
+.form_designer__title_card {
+  border: 1px black solid;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 40rem;
+  min-width: 10rem;
+  justify-self: center;
+}
+
+.form_designer__title_card > label {
+  content-visibility: hidden;
+}
+
+.form_designer__title_card > input:first-of-type {
+  font-size: large;
+  border-width: 0 0 2px 0;
+}
+
+.form_designer__card__title {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  gap: 0.4rem;
+}
+
+.form_designer__card__title * {
+  width: 100%;
+}

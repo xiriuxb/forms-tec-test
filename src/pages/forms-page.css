@@ -1,0 +1,12 @@
+nav{
+  display: flex;
+  flex-direction: row;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.forms__body_content{
+  width: 100%;
+  background-color: aqua;
+}

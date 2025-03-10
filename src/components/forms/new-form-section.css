@@ -1,0 +1,10 @@
+.forms__create_section{
+  padding: 1rem;
+}
+
+.forms__create_section button{
+  background-color: white;
+  border: 1px solid;
+  padding: 0.7rem;
+  font-size: medium;
+}
