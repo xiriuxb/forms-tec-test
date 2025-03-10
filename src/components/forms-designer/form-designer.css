@@ -1,13 +1,14 @@
 .form_designer__card,
 .form_designer__title_card {
-  border: 1px black solid;
-  padding: 0.5rem;
+  border: 2px black solid;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 40rem;
   min-width: 10rem;
   justify-self: center;
+  position: relative;
 }
 
 .form_designer__title_card > label {
@@ -28,4 +29,14 @@
 
 .form_designer__card__title * {
   width: 100%;
+}
+
+.form_designer__card__closebtn{
+  background-color: black;
+  color: aliceblue;
+  position: absolute;
+  border-radius: 1.5rem;
+  line-height: 20px;
+  top: -13px;
+  right: -13px;
 }

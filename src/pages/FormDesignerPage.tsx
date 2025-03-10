@@ -56,7 +56,11 @@ export default function FormDesignerPage() {
   };
 
   const handleAddField = () => {
-    append({ ...initialFieldValue, field_type_id: defaultType.current!.id });
+    append({
+      question: `Pregunta sin título ${methods.getValues("fields").length}`,
+      is_required: false,
+      field_type_id: defaultType.current!.id,
+    });
   };
 
   return (
@@ -67,7 +71,7 @@ export default function FormDesignerPage() {
         </nav>
         <section
           style={{
-            gap: "0.7rem",
+            gap: "1rem",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -85,7 +89,7 @@ export default function FormDesignerPage() {
           </button>
           <TitleCard />
           {defaultType.current?.id &&
-            methods.getValues("fields").map((_, index) => {
+            methods.watch("fields").map((_, index) => {
               return (
                 <FieldCard
                   key={index}
