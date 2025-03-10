@@ -1,4 +1,7 @@
 name: Deploy React to Vercel
+env:
+  VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+  VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
 
 on:
   push:
