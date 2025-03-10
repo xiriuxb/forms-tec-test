@@ -2,6 +2,7 @@
 import { useFormContext } from "react-hook-form";
 import { CreateFormModel } from "../../models/Form";
 import { useEffect, useRef } from "react";
+import "./form-designer.css";
 
 export default function MultipleOptionsComponent({
   index,
@@ -45,7 +46,7 @@ export default function MultipleOptionsComponent({
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="form_designer__card__options_comp">
       <span>Opciones</span>
       {watch(`fields.${index}.options`)?.map((opt, optIndex) => (
         <div key={optIndex}>
@@ -55,11 +56,11 @@ export default function MultipleOptionsComponent({
             defaultValue={opt}
           />
           {p?.length != 1 && (
-            <button onClick={() => handleDelete(optIndex)}>&#10005;</button>
+            <button className="close" onClick={() => handleDelete(optIndex)}>&#10005;</button>
           )}
         </div>
       ))}
-      <button onClick={() => handleSetValue()}>mas</button>
+      <button onClick={() => handleSetValue()}>Añadir opción</button>
     </div>
   );
 }

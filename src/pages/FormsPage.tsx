@@ -6,12 +6,14 @@ export default function FormsPage() {
   return (
     <>
       <FormsNav />
-      <section className="forms__body_content">
-        <NewFormSection />
-      </section>
-      <section>
-        <ExistingFormsSection />
-      </section>
+      <main className="forms__page">
+        <section className="forms__body_content">
+          <NewFormSection />
+        </section>
+        <section className="forms__body_content">
+          <ExistingFormsSection />
+        </section>
+      </main>
     </>
   );
 }

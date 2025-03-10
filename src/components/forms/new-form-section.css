@@ -9,19 +9,52 @@
   font-size: medium;
 }
 
+.forms__create_section button:hover{
+  box-shadow: 1px 1px 5px black;
+}
+
 .forms__existing-section{
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   gap:0.8rem;
   padding: 0.8rem;
+  justify-content: center;
 }
 
 .forms__existing-section__card{
   border: 1px solid black;
   padding: 1rem;
-  flex-wrap: wrap;
-  display: inline-flex;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+  max-width: 12rem;
+  justify-content: space-between;
 }
 
-.forms__existing-section p{
+.forms__existing-section__card:hover{
+  box-shadow: 1px 1px 10px black;
+}
+
+.forms__existing-section p:first-of-type{
   margin-block: 0;
+  font-weight: bold;
+}
+
+.forms__existing-section p:last-of-type{
+  margin-block: 0;
+  font-size: small;
+}
+
+.forms__existing-section__card__btn{
+  background-color: #54565e;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  line-height: 1.3;
+  text-decoration: none;
+  border-radius: 5px;
+  padding-block: 0.3rem;
+  text-align: center;
+  border: 1px solid;
 }

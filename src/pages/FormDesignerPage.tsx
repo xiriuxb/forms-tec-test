@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { getFieldTypes } from "../api-client/filed-types.api";
 import { FieldTypes } from "../models/FieldTypes";
 import { saveForm } from "../api-client/forms.api";
+import "./form-designer-page.css";
 
 const DEFAULT_TYPE_NAME = "short_text";
 
@@ -38,7 +39,9 @@ export default function FormDesignerPage() {
   const handleFieldTypes = async () => {
     try {
       const values = await getFieldTypes();
-      defaultType.current = values.find((o:{name:string}) => o.name == DEFAULT_TYPE_NAME);
+      defaultType.current = values.find(
+        (o: { name: string }) => o.name == DEFAULT_TYPE_NAME
+      );
       setFieldTypes(values);
     } catch (error) {
       console.log(error);
@@ -71,24 +74,19 @@ export default function FormDesignerPage() {
         <nav>
           <span>Formulario</span>
         </nav>
-        <section
-          style={{
-            gap: "1rem",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <section className="form_designer">
           <h4>Crear Formulario</h4>
-          <button disabled={!defaultType.current} onClick={handleAddField}>
-            Añadir Pregunta
-          </button>
-          <button
-            disabled={!fieldTypes}
-            onClick={methods.handleSubmit(onSubmit)}
-          >
-            Guardar Formulario
-          </button>
+          <div className="form_designer__actions">
+            <button disabled={!defaultType.current} onClick={handleAddField}>
+              Añadir Pregunta
+            </button>
+            <button
+              disabled={!fieldTypes}
+              onClick={methods.handleSubmit(onSubmit)}
+            >
+              Guardar Formulario
+            </button>
+          </div>
           <TitleCard />
           {defaultType.current?.id &&
             methods.watch("fields").map((_, index) => {

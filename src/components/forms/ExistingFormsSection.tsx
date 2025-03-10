@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getForms } from "../../api-client/forms.api";
 import FormModel from "../../models/Form";
-import "./new-form-section.css";
 import { Link } from "react-router";
+import "./new-form-section.css";
 
 export default function ExistingFormsSection() {
   const [forms, setForms] = useState<FormModel[]>([]);
@@ -38,8 +38,8 @@ function ViewFormCard({ form }: { form: FormModel }) {
     <div className="forms__existing-section__card">
       <p>{form.name}</p>
       <p>{form.description}</p>
-      <Link to={`/forms/u/${form.id}`}>Ver</Link>
-      <button>Editar</button>
+      <Link className="forms__existing-section__card__btn" to={`/forms/u/${form.id}`}>Ver</Link>
+      <button className="forms__existing-section__card__btn">Editar</button>
     </div>
   );
 }

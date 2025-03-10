@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router";
 import { getFormWithFieldsAndTypes } from "../api-client/forms.api";
 import { useEffect, useState } from "react";

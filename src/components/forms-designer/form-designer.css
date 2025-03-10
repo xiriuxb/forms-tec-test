@@ -1,14 +1,25 @@
+.form_designer__card input {
+  font-size: large;
+  border-width: 0 0 1px 0;
+  border-color: black;
+}
+
+.form_designer__card > input:last-of-type,
+.form_designer__title_card > input:last-of-type {
+  font-size: medium;
+}
 .form_designer__card,
 .form_designer__title_card {
   border: 2px black solid;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 40rem;
   min-width: 10rem;
   justify-self: center;
   position: relative;
+  border-radius: 10px;
 }
 
 .form_designer__title_card > label {
@@ -31,7 +42,7 @@
   width: 100%;
 }
 
-.form_designer__card__closebtn{
+.form_designer__card__closebtn {
   background-color: black;
   color: aliceblue;
   position: absolute;
@@ -40,3 +51,46 @@
   top: -13px;
   right: -13px;
 }
+
+.form_designer__card__options_comp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form_designer__card__options_comp span {
+  font-weight: bold;
+}
+
+.form_designer__card__options_comp input {
+  font-size: medium;
+  width: 60%;
+}
+
+.form_designer__card__options_comp > button:last-of-type {
+  background-color: #54565e;
+  border:1px solid black;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding-block: 0.3rem;
+  width: 60%;
+}
+
+.form_designer__card__options_comp button.close {
+  border: 2px solid #d84747;
+  background-color: transparent;
+  color: #d84747;
+  border-radius: 100%;
+  line-height: 20px;
+}
+
+
+.form_designer__card__options_comp button.close:hover {
+  border: 2px solid #6e2121;
+  background-color: #d84747;
+  color: white;
+  border-radius: 100%;
+  line-height: 20px;
+}
+

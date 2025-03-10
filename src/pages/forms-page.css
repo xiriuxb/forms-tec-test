@@ -6,7 +6,18 @@ nav{
   border-bottom: 1px solid black;
 }
 
+.forms__page{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .forms__body_content{
-  width: 100%;
-  background-color: aqua;
+  width: 80%;
+  max-width: 80rem;
+}
+
+.forms__body_content:first-child{
+  background-color: darkgrey;
 }
